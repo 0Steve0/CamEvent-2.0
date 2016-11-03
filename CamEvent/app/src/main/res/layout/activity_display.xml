@@ -31,6 +31,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Link"
+        android:textSize="20sp"
+        android:gravity="left|right"
+        android:id="@+id/link" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="I am description"
         android:textSize="20sp"
         android:gravity="left|right"
