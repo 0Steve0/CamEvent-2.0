@@ -66,7 +66,7 @@ public class InitializeActivity extends AppCompatActivity implements JSONDownloa
         // Each Parser has their own ParseTypes
         String givenUrl = apiResult.getUrl();
         for(int i=0;i<100;i++){
-            Log.d(LOGCAT_DOWNLOAD, String.valueOf(i));
+            //Log.d(LOGCAT_DOWNLOAD, String.valueOf(i));
             if(givenUrl.equals(url[i])){
             eventparser[i].setAPIResult(apiResult);
             eventparser[i].parseJSON();

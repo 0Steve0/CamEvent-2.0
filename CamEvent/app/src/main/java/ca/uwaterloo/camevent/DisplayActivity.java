@@ -1,15 +1,18 @@
 package ca.uwaterloo.camevent;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.util.Linkify;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,10 +25,10 @@ public class DisplayActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
     private String strTitle;
-    private String strDes;
+    //private String strDes;
     private String strDate;
     private String strLoc;
-    //private String strlink;
+    private String strLink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,16 +48,18 @@ public class DisplayActivity extends AppCompatActivity {
         Eventinfo eventinfo=eventDB.getEvent(eventtitle);
         //System.out.println(eventinfo.getEventTitle());
         strTitle=eventinfo.getEventTitle();
-        strDes=eventinfo.getEventDescriptionRow();
+        //strDes=eventinfo.getEventDescriptionRow();
         strDate=eventinfo.getEventDate();
         strLoc=eventinfo.getEventLocationName();
-        //strlink=eventinfo.getEventLink();
+        //strLink=Uri.parse(eventinfo.getEventLink());
+        strLink= eventinfo.getEventLink();
         //set title and description!
         TextView title = (TextView) findViewById(R.id.title);
-        TextView des = (TextView) findViewById(R.id.des);
+        TextView link = (TextView) findViewById(R.id.des);
         title.setText(strTitle);
-        //des.setText(strDes);
-        des.setText(Html.fromHtml(strDes));
+        link.setText(strLink);
+        Linkify.addLinks(link, Linkify.WEB_URLS);
+        //des.setText(Html.fromHtml(strDes));
         //set date and location
         ListView list = (ListView) findViewById(R.id.MyListView);
         ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
@@ -66,6 +71,11 @@ public class DisplayActivity extends AppCompatActivity {
         map_location.put("ItemTitle", "Location");
         map_location.put("ItemText", strLoc);
         mylist.add(map_location);
+//        HashMap<String, Uri> map_link= new HashMap<String, Uri>();
+//        map_link.put("ItemTitle","Link");
+//        map_link.put("ItemText", strLink);
+//        map_link.
+//        mylist.add(map_link);
 
 
         SimpleAdapter mSchedule = new SimpleAdapter(this,

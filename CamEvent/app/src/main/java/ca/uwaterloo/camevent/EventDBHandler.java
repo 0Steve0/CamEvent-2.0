@@ -14,6 +14,10 @@ import java.util.List;
  * C:\Users\sound\AppData\Local\Android\sdk\platform-tools
  adb -s emulator-5554 shell
  cd data/data/ca.uwaterloo.camevent/databases
+ ls
+ sqlite3 EventInfo
+ .tables
+ select* from event;
  */
 public class EventDBHandler extends SQLiteOpenHelper {
     // Database Version

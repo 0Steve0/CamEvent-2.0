@@ -75,7 +75,13 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".WaterlooOD_test" />
-        <activity android:name=".InitializeActivity" />
+        <activity android:name=".InitializeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MeActivity"
             android:label="@string/title_activity_me"

@@ -27,6 +27,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile 'com.google.android.gms:play-services-auth:9.4.0'
     compile 'com.google.android.gms:play-services-gcm:9.4.0'
-    compile files('C:/Users/lei/Documents/GitHub/CamEvent-2.0/CamEvent/lib/libs/org.json-20120521.jar')
+    compile files('../lib/libs/org.json-20120521.jar')
     compile 'org.jetbrains:annotations-java5:15.0'
 }
